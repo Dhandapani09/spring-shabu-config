@@ -1,4 +1,6 @@
 server:
+ servlet:
+  context-path: /api
   port: 8888
 
 spring:
@@ -9,7 +11,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/your-username/config-repo
+          uri: https://github.com/Dhandapani09/spring-shabu-config
           default-label: main
           clone-on-start: true					
 eureka:
