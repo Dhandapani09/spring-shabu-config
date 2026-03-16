@@ -3,7 +3,10 @@ server:
 
 spring:
   application:
-    name: API-GATEWAY
+    name: api-gateway
+  server:
+   servlet:
+    context-path: /api
 
   cloud:
     gateway:
@@ -11,7 +14,7 @@ spring:
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
-            - Path=/auth/**
+            - Path=/api/auth/**
         - id: member-service
           uri: lb://MEMBER-SERVICE
           predicates:
