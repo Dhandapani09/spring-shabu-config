@@ -1,6 +1,6 @@
 server:
- servlet:
-  context-path: /api
+  servlet:
+    context-path: /api
   port: 8888
 
 spring:
@@ -13,8 +13,9 @@ spring:
         git:
           uri: https://github.com/Dhandapani09/spring-shabu-config
           default-label: main
-          clone-on-start: true					
+          clone-on-start: true
+
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/					
+      defaultZone: http://localhost:8761/eureka/
