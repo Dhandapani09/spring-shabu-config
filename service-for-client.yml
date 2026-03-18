@@ -4,8 +4,11 @@ server:
 spring:
   application:
     name: service-for-client
-    mongodb:
-      uri: mongodb://localhost:27017/ETL
+  datasource:
+    url: jdbc:mysql://localhost:3306/shabarish
+    username: root
+    password: Shabarish@8945
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   kafka:
     bootstrap-servers: localhost:9092
