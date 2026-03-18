@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: service-for-client
+
   datasource:
     url: jdbc:mysql://localhost:3306/shabarish
     username: root
@@ -18,6 +19,15 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  cache:
+    type: redis
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 60000
 
 eureka:
   client:
