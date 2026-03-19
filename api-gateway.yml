@@ -21,3 +21,20 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+# ✅ 🔥 Jaeger + OpenTelemetry Configuration
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0   # trace all requests (dev)
+
+  otlp:
+    tracing:
+      endpoint: http://localhost:4317
+      transport: grpc   # important for Jaeger
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"

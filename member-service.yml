@@ -40,3 +40,24 @@ logging:
   level:
     io.github.resilience4j.circuitbreaker: DEBUG
     org.springframework.cloud.openfeign: DEBUG
+
+# ===== Actuator + Tracing Configuration =====
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env, health, beans, info, metrics
+
+  endpoint:
+    health:
+      show-details: always
+
+  # ✅ 🔥 OpenTelemetry Tracing
+  tracing:
+    sampling:
+      probability: 1.0   # trace all requests (reduce in prod)
+
+  otlp:
+    tracing:
+      endpoint: http://localhost:4317
+      transport: grpc

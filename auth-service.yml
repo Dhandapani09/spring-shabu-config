@@ -22,12 +22,23 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-# ===== Actuator settings in Git repo =====
+# ===== Actuator + Tracing Configuration =====
 management:
   endpoints:
     web:
       exposure:
         include: env, health, beans, info, metrics, httptrace
+
   endpoint:
     health:
       show-details: always
+
+  # ✅ 🔥 ADD TRACING HERE
+  tracing:
+    sampling:
+      probability: 1.0   # trace all requests (reduce in prod)
+
+  otlp:
+    tracing:
+      endpoint: http://localhost:4317
+      transport: grpc

@@ -33,3 +33,24 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+# ===== Actuator + Tracing Configuration =====
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env, health, beans, info, metrics
+
+  endpoint:
+    health:
+      show-details: always
+
+  # ✅ 🔥 OpenTelemetry Tracing
+  tracing:
+    sampling:
+      probability: 1.0   # capture all traces (reduce in prod)
+
+  otlp:
+    tracing:
+      endpoint: http://localhost:4317
+      transport: grpc
