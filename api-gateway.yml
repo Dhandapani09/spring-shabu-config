@@ -27,12 +27,13 @@ eureka:
 management:
   tracing:
     sampling:
-      probability: 1.0   # trace all requests (dev)
+      probability: 1.0  # capture all traces (dev only)
 
-  otlp:
-    tracing:
-      endpoint: http://localhost:4317
-      transport: grpc   # important for Jaeger
+  otel:
+    exporter:
+      otlp:
+        endpoint: http://localhost:4317
+        protocol: grpc  # required for Jaeger OTLP
 
   endpoints:
     web:
