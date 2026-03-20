@@ -41,6 +41,7 @@ management:
       probability: 1.0  # capture all traces (dev only)
 
   otel:
+    service-name: my-service-client
     exporter:
       otlp:
         endpoint: http://localhost:4317

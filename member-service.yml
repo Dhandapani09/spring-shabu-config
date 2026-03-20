@@ -41,13 +41,13 @@ logging:
     io.github.resilience4j.circuitbreaker: DEBUG
     org.springframework.cloud.openfeign: DEBUG
 
-# ===== Actuator + Tracing Configuration =====
 management:
   tracing:
     sampling:
       probability: 1.0  # capture all traces (dev only)
 
   otel:
+    service-name: member-service
     exporter:
       otlp:
         endpoint: http://localhost:4317

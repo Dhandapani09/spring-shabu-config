@@ -29,6 +29,7 @@ management:
       probability: 1.0  # capture all traces (dev only)
 
   otel:
+    service-name: Auth-service
     exporter:
       otlp:
         endpoint: http://localhost:4317
