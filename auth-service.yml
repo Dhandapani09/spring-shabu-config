@@ -52,8 +52,8 @@ management:
 rate-limiter:
   prefix: "rate_limit:"               # Redis key prefix
   global:
-    window-seconds: 60                # 60 seconds window
-    max-requests: 500                 # 500 requests per user globally
+    window-seconds: 10                # 60 seconds window
+    max-requests: 3                 # 500 requests per user globally
   service:
-    window-seconds: 60                # 60 seconds window
-    max-requests: 100                 # 100 requests per user for Auth service
+    window-seconds: 10                # 60 seconds window
+    max-requests: 3                 # 100 requests per user for Auth service
