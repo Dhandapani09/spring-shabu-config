@@ -17,6 +17,14 @@ spring:
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL8Dialect
 
+  # ✅ Correct Redis Configuration
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      lettuce:
+        shutdown-timeout: 100ms  # optional, graceful shutdown
+
 eureka:
   client:
     service-url:
@@ -39,3 +47,13 @@ management:
     web:
       exposure:
         include: "*"
+
+# ✅ Rate Limiter Properties
+rate-limiter:
+  prefix: "rate_limit:"               # Redis key prefix
+  global:
+    window-seconds: 60                # 60 seconds window
+    max-requests: 500                 # 500 requests per user globally
+  service:
+    window-seconds: 60                # 60 seconds window
+    max-requests: 100                 # 100 requests per user for Auth service
